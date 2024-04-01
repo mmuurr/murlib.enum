@@ -5,7 +5,7 @@ prepend_class <- function(x, cls = NULL) {
 enum_regex <- "^[.A-Z][A-Z0-9_.]*$"
 
 #' @export
-enum <- function(..., .classname = NULL) {
+enum <- function(..., .classname = NULL, .coerce = risio.core::identity) {
     vals <- list(...) |> as.character()
     stopifnot(all(grepl(enum_regex, vals)))
     stopifnot(!any(duplicated(vals)))
